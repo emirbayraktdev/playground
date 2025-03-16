@@ -1,11 +1,12 @@
-# shadcn/ui monorepo template
+# NextJS Playground
 
-This template is for creating a monorepo with shadcn/ui.
+This Playground can be use to experiment some NextJS concepts!
 
 ## Usage
 
 ```bash
-pnpm dlx shadcn@latest init
+pnpm i
+pnpm run dev
 ```
 
 ## Adding components
@@ -27,5 +28,5 @@ Your `tailwind.config.ts` and `globals.css` are already set up to use the compon
 To use the components in your app, import them from the `ui` package.
 
 ```tsx
-import { Button } from "@workspace/ui/components/button"
+import { Button } from '@workspace/ui/components/button'
 ```
