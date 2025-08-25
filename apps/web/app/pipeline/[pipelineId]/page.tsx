@@ -6,12 +6,19 @@ import { notFound } from "next/navigation";
 
 type Props = { params: { pipelineId: string } };
 
+type Params = { pipelineId: string };
+
 export const revalidate = 0;
 
-export default async function PipelinePage({ params }: Props) {
+export default async function PipelinePage({
+  params,
+}: {
+  params: Promise<Params>;
+}) {
+  const { pipelineId } = await params;      // ✅ await the params
   await dbConnect();
 
-  const pipeline = (await PipelineModel.findOne({ pipelineId: params.pipelineId }).lean()) as
+  const pipeline = (await PipelineModel.findOne({ pipelineId }).lean()) as
     | (IPipeline & { _id: string })
     | null;
 
